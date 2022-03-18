@@ -1,93 +1,41 @@
 package com.karasusoft.arenafitnessapi.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.karasusoft.arenafitnessapi.enums.ClientStatus;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@Table(name = "APPLICATION_USER")
 public class UserModel {
 
     @Id
-    String document;
+    private String document;
 
     @Column(nullable = false)
-    String firstName;
+    private String firstName;
 
     @Column(nullable = false)
-    String lastName;
+    private String lastName;
 
-    String gender;
+    private String gender;
 
-    String phoneNumber;
+    private String phoneNumber;
 
-    String email;
+    private String email;
 
-    LocalDateTime DoB;
+    private LocalDateTime DoB;
 
-    LocalDateTime creationDate;
+    private LocalDateTime creationDate;
 
-    public String getDocument() {
-        return document;
-    }
+    @OneToMany
+    private List<AddressModel> addressModel;
 
-    public void setDocument(String document) {
-        this.document = document;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firtName) {
-        this.firstName = firtName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public LocalDateTime getDoB() {
-        return DoB;
-    }
-
-    public void setDoB(LocalDateTime doB) {
-        DoB = doB;
-    }
-
-    public LocalDateTime getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(LocalDateTime creationDate) {
-        this.creationDate = creationDate;
-    }
+    @Enumerated(EnumType.STRING)
+    private ClientStatus clientStatus;
 }

@@ -1,6 +1,7 @@
 package com.karasusoft.arenafitnessapi.controller;
 
 import com.karasusoft.arenafitnessapi.dto.UserDto;
+import com.karasusoft.arenafitnessapi.enums.ClientStatus;
 import com.karasusoft.arenafitnessapi.model.UserModel;
 import com.karasusoft.arenafitnessapi.service.UserService;
 import org.springframework.beans.BeanUtils;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -28,6 +29,7 @@ public class UserController {
         var  userModel = new UserModel();
         BeanUtils.copyProperties(userDto, userModel);
         userModel.setCreationDate(LocalDateTime.now(ZoneId.of("UTC")));
+        userModel.setClientStatus(ClientStatus.CREATED);
 
         if(userService.existsByDocument(userDto.getDocument())){
             return ResponseEntity.status(HttpStatus.CONFLICT).body("This user is already registered.");
@@ -64,7 +66,7 @@ public class UserController {
         }
 
         var userModel = optionalUser.get();
-
+        BeanUtils.copyProperties(userDto, userModel);
         return ResponseEntity.status(HttpStatus.OK).body(userService.save(userModel));
     }
 
