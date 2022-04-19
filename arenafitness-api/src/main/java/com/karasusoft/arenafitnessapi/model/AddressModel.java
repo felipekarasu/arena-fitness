@@ -1,5 +1,6 @@
 package com.karasusoft.arenafitnessapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +17,11 @@ public class AddressModel {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private UUID addressId;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name="user_document", nullable=false)
+    private UserModel user;
 
     @NotBlank
     private String addressName;

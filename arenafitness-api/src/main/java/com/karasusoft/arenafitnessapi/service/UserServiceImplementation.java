@@ -1,7 +1,7 @@
 package com.karasusoft.arenafitnessapi.service;
 
 import com.karasusoft.arenafitnessapi.model.UserModel;
-import com.karasusoft.arenafitnessapi.reoisitory.UserRepository;
+import com.karasusoft.arenafitnessapi.repoisitory.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

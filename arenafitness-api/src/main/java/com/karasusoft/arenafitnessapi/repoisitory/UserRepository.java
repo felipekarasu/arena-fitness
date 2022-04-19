@@ -1,4 +1,4 @@
-package com.karasusoft.arenafitnessapi.reoisitory;
+package com.karasusoft.arenafitnessapi.repoisitory;
 
 import com.karasusoft.arenafitnessapi.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;

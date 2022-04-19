@@ -2,16 +2,16 @@ package com.karasusoft.arenafitnessapi.enums;
 
 public enum ClientStatus {
 
-    CREATED("criado",1),
+    CREATED("Criado",1),
     ACTIVATED("Ativo",2),
     DEACTIVATED("Desativado",3),
-    PAYMENT_UP_TO_DATE("Pagamento em DIa",4),
+    PAYMENT_UP_TO_DATE("Pagamento em Dia",4),
     DELAYED_PAYMENT("Pagamento Atrasado",5);
 
     private final String description;
     private int value;
 
-    private ClientStatus(String desc, int value){
+    ClientStatus(String desc, int value){
         this.description = desc;
         this.value = value;
     }

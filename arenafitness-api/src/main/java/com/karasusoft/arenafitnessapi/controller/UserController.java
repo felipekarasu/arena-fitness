@@ -2,6 +2,7 @@ package com.karasusoft.arenafitnessapi.controller;
 
 import com.karasusoft.arenafitnessapi.dto.UserDto;
 import com.karasusoft.arenafitnessapi.enums.ClientStatus;
+import com.karasusoft.arenafitnessapi.model.AddressModel;
 import com.karasusoft.arenafitnessapi.model.UserModel;
 import com.karasusoft.arenafitnessapi.service.UserService;
 import org.springframework.beans.BeanUtils;
@@ -26,10 +27,15 @@ public class UserController {
     @PostMapping
     public ResponseEntity<Object> createUser(@RequestBody @Valid UserDto userDto) {
 
-        var  userModel = new UserModel();
+        var userModel = new UserModel();
+        var addressModel = new AddressModel();
         BeanUtils.copyProperties(userDto, userModel);
+        BeanUtils.copyProperties(userDto.getAddressDtoList().get(0), addressModel);
+
+        addressModel.setUser(userModel);
         userModel.setCreationDate(LocalDateTime.now(ZoneId.of("UTC")));
         userModel.setClientStatus(ClientStatus.CREATED);
+        userModel.getAddressModelList().add(addressModel);
 
         if(userService.existsByDocument(userDto.getDocument())){
             return ResponseEntity.status(HttpStatus.CONFLICT).body("This user is already registered.");
