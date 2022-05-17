@@ -1,6 +1,6 @@
 package com.karasusoft.arenafitnessapi.enums;
 
-public enum ClientStatus {
+public enum UserStatus {
 
     CREATED("Criado",1),
     ACTIVATED("Ativo",2),
@@ -11,7 +11,7 @@ public enum ClientStatus {
     private final String description;
     private int value;
 
-    ClientStatus(String desc, int value){
+    UserStatus(String desc, int value){
         this.description = desc;
         this.value = value;
     }

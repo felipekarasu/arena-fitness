@@ -1,6 +1,6 @@
 package com.karasusoft.arenafitnessapi.model;
 
-import com.karasusoft.arenafitnessapi.enums.ClientStatus;
+import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,7 +40,7 @@ public class UserModel {
     private List<AddressModel> addressModelList;
 
     @Enumerated(EnumType.STRING)
-    private ClientStatus clientStatus;
+    private UserStatus userStatus;
 
     public List<AddressModel> getAddressModelList() {
 

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class AddressServiceImplementation implements AddressService {
@@ -20,6 +22,12 @@ public class AddressServiceImplementation implements AddressService {
         return addressRepository.save(addressModel);
     }
 
+    @Override
+    public Optional<AddressModel> findById(UUID addressId) {
+        return addressRepository.findById(addressId);
+    }
+
+    //TODO refactor remove address from name
     @Override
     public List<AddressModel> getAllByUserId(String userId) {
         return addressRepository.findAllAddressesByUserDocument(userId);

@@ -1,7 +1,7 @@
 package com.karasusoft.arenafitnessapi.controller;
 
 import com.karasusoft.arenafitnessapi.dto.UserDto;
-import com.karasusoft.arenafitnessapi.enums.ClientStatus;
+import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import com.karasusoft.arenafitnessapi.model.AddressModel;
 import com.karasusoft.arenafitnessapi.model.UserModel;
 import com.karasusoft.arenafitnessapi.service.UserService;
@@ -34,7 +34,7 @@ public class UserController {
 
         addressModel.setUser(userModel);
         userModel.setCreationDate(LocalDateTime.now(ZoneId.of("UTC")));
-        userModel.setClientStatus(ClientStatus.CREATED);
+        userModel.setUserStatus(UserStatus.CREATED);
         userModel.getAddressModelList().add(addressModel);
 
         if(userService.existsByDocument(userDto.getDocument())){
@@ -59,6 +59,12 @@ public class UserController {
     public ResponseEntity<List<UserModel>> getAllUsers() {
 
         return ResponseEntity.status(HttpStatus.OK).body(userService.findAll());
+    }
+
+    @GetMapping("/status")
+    public ResponseEntity<List<UserModel>> getUserByStatus(@RequestParam(value = "status") String userStatus) {
+
+        return ResponseEntity.status(HttpStatus.OK).body(userService.findAllByStatus(UserStatus.valueOf(userStatus)));
     }
 
     @PutMapping

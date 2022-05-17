@@ -1,5 +1,6 @@
 package com.karasusoft.arenafitnessapi.service;
 
+import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import com.karasusoft.arenafitnessapi.model.UserModel;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface UserService {
     Optional<UserModel> findById(String id);
 
     void delete(UserModel userModel);
+
+    List<UserModel> findAllByStatus(UserStatus userStatus);
 }

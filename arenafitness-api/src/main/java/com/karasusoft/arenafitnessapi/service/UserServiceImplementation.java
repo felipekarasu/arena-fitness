@@ -1,5 +1,6 @@
 package com.karasusoft.arenafitnessapi.service;
 
+import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import com.karasusoft.arenafitnessapi.model.UserModel;
 import com.karasusoft.arenafitnessapi.repoisitory.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,12 @@ public class UserServiceImplementation implements UserService {
         return userRepository.findAll();
     }
 
+    @Override
+    public List<UserModel> findAllByStatus(UserStatus userStatus) {
+        return userRepository.findAllByUserStatus(userStatus);
+    }
+
+    //TODO refactor id -> document
     @Override
     public Optional<UserModel> findById(String id) {
         return userRepository.findById(id);

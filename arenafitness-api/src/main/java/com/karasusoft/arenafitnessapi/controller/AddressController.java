@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/addresses")
@@ -47,10 +48,24 @@ public class AddressController {
         return ResponseEntity.status(HttpStatus.OK).body(addressService.getAllByUserId(userId));
     }
 
-    @PutMapping("/associateUser/{userId}")
-    public ResponseEntity<Object> associateAddress(@PathVariable(value = "userId") String userId){
+    @PutMapping("{addressId}/associateUser/{userId}")
+    public ResponseEntity<Object> associateAddress(@PathVariable(value = "addressId") UUID addressId,
+                                                   @PathVariable(value = "userId") String userId){
 
-        return null;
+        Optional<UserModel> optionalUser = userService.findById(userId);
+        Optional<AddressModel> optionalAddress = addressService.findById(addressId);
+
+        if(!optionalUser.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not Found!");
+        }
+
+        if(!optionalAddress.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Address not Found!");
+        }
+
+        optionalUser.get().getAddressModelList().add(optionalAddress.get());
+        userService.save(optionalUser.get());
+
+        return ResponseEntity.status(HttpStatus.OK).body(optionalUser.get());
     }
-
 }
