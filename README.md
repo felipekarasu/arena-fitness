@@ -7,7 +7,7 @@
 <li> Spring, Spring Boot e Spring MVC </li>
 </ul>
 
-<h2> ⚙️Features⚙ </h2>
+<h2> ⚙️Features </h2>
 <ul>
     <li> Customer Account </li>
         <ul>
@@ -25,7 +25,6 @@
             <li> Client Health Assessment managemnet </li>
             <li> Payment/Biling notifications </li>   
        </ul>
-    <li>
 </ul>
 
 <!--<h2>:computer: Desenvolvedor</h2>
