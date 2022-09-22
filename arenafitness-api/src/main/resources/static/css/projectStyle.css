@@ -1,0 +1,130 @@
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    height: 100%
+    width: 100%;
+    margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg {
+    background-image: url("https://images.alphacoders.com/985/985124.jpg");
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.logo-container {
+    float: left;
+    width: 20%;
+    flex: 0 1 auto;
+    border-color: white;
+    border-style: solid;
+}
+
+.menu-container {
+    float: left;
+    width : 80%;
+    flex: 0 1 auto;
+    border-color: white;
+    border-style: solid;
+}
+
+.logo-image {
+    height: 100%;
+    width: 100%;
+    object-fit : fill;
+}
+
+.menu-container a {
+    float: right;
+    height: 100%;
+    width: 10%;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-container a:hover {
+  background-color: red;
+  color: black;
+}
+
+/* Create two columns/boxes that floats next to each other */
+.left-menu {
+    float: left;
+    width: 20%;
+    background: #f1f1f1;
+    opacity: 0.7;
+    border-right : solid black;
+}
+
+.left-menu button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 32px;
+}
+
+.left-menu button:hover {
+  background-color: #ddd;
+}
+
+.left-menu button.active {
+  background-color: #ccc;
+}
+
+.right-menu {
+    float: left;
+    width: 80%;
+    background-color: #f1f1f1;
+    opacity: 0.7;
+}
+
+/* Style the list inside the menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Clear floats after the columns */
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    bottom: 0;
+    width:100%
+}

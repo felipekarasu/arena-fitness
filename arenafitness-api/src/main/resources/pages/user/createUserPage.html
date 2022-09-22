@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<!--html xmlns:th="http://thymelead.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layour">-->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
+    <head th:replace="~{baseLayout/head :: head}"></head>
+
+    <body>
+
+        <div th:replace="~{baseLayout/navbar :: navbar}"></div>
+
+        <h1>Cadastro de Usurários</h1>
+        <form method="post">
+            Nome: <input type="text" value="" name="firstName"/><p/>
+            Sobrenome: <input type="text" value="" name="lastName"/><p/>
+            Sexo:   <input type="radio" id="genderChoiceM" value="masculino" name="gender"/>
+                    <label for="genderChoiceM">Masculino</label>
+                    <input type="radio" id="genderChoiceF"   value="feminino" name="gender">
+                    <label for="genderChoiceF">Feminino</label><p/>
+
+            CPF: <input type="text" value="" name="document" onkeypress="$(this).mask('000.000.000-00');" placeholder="000.000.000-00"/><p/>
+            Data de Nascimento: <input type="date" value="" name="DoB"/><p/>
+            Telefone: <input type="text" value="" name="phoneNumber" onkeypress="$(this).mask('(00) 00000-0000');" placeholder="(00) 00000-0000"/><p/>
+            Email: <input type="email" value="" name="email" placeholder="exemplo@mail.com"/><p/>
+
+            <button type="submit"> Criar Usuário </button>
+            <button type="reset"> Limpar Campos</button>
+        </form>
+
+        <footer th:replace="~{baseLayout/footer :: footer}"></footer>
+
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{baseLayout/head :: head}"></head>
+
+    <body class="bg">
+
+        <div th:replace="~{baseLayout/header :: header}"></div>
+
+        <div class="container">
+
+            <div class="left-menu">
+                <button class="tablinks" onclick="openMenu(event, 'Users')" id="defaultOpen">Usuários</button>
+                <button class="tablinks" onclick="openMenu(event, 'Configurations')">Configurações</button>
+            </div>
+
+            <div class="right-menu" id="Users">
+
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+
+            </div>
+
+            <div class="right-menu" id="Configurations">
+
+                <h1>b</h1>
+                <h1>b</h1>
+                <h1>b</h1>
+                <h1>b</h1>
+                <h1>b</h1>
+                <h1>b</h1>
+                <h1>b</h1>
+                <h1>b</h1>
+                <h1>b</h1>
+                <h1>b</h1>
+                <h1>b</h1>
+
+            </div>
+
+        </div>
+
+
+
+    <footer th:replace="~{baseLayout/footer :: footer}"></footer>
+
+    <!--SCRIPTS-->
+    <script>
+        function openMenu(evt, menuName) {
+            var i, menus, tablinks;
+
+            menus = document.getElementsByClassName("right-menu");
+            for (i = 0; i < menus.length; i++) {
+                menus[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(menuName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+    </body>
+</html>
