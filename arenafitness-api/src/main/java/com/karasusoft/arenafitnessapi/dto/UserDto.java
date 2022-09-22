@@ -4,10 +4,11 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,8 @@ public class UserDto {
     @Email
     String email;
 
-    LocalDateTime DoB;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    LocalDate DoB;
 
     @Getter(AccessLevel.NONE)
     List<AddressDto> addressDtoList;
