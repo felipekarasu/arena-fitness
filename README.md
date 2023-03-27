@@ -1,5 +1,7 @@
 <h2>🏋️‍♂️Arenafitness - Gym management project🏋️‍♂️</h2>
 
+<a src="google.com">Angular Project Link</a>
+
  
 <h2> 🛠Tools and techs </h2>
 <ul>
