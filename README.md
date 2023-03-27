@@ -3,7 +3,6 @@
  
 <h2> 🛠Tools and techs </h2>
 <ul>
-<li> Thymeleaf</li>
 <li> Spring, Spring Boot e Spring MVC </li>
 </ul>
 
