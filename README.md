@@ -22,7 +22,7 @@
             <li> Gym acess Control </li>
             <li> Fulfill payment </li>
             <li> Client Health Assessment managemnet </li>
-            <li> Payment/Biling notifications </li>   
+            <li> Payment/Billing notifications </li>   
        </ul>
 </ul>
 
