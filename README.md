@@ -28,9 +28,9 @@
        </ul>
 </ul>
 
-<h2>:computer: Desenvolvedor</h2>
+<!-- <h2>:computer: Desenvolvedor</h2>
 <table>
   <tr>
   <td><a href="https://github.com/felipekarasu"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/6536540" width="100px;"   alt=""/><br /><sub><b>Felipe Grego</b></sub></a><br /></td>
   </tr>
-</table>
+</table> -->
