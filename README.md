@@ -1,11 +1,6 @@
 <h2>🏋️‍♂️Arenafitness - Gym management project🏋️‍♂️</h2>
 
-<details open=""><summary><b>Angular Project Link</b></summary>
-    <a href="https://github.com/felipekarasu">Angular Project Link</a>
-</details>
-
-
-
+<a href="https://github.com/felipekarasu">Angular Project Link</a>
  
 <h2> 🛠Tools and techs </h2>
 <ul>
