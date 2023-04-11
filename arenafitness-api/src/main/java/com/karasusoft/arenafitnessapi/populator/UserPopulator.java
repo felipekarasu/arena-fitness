@@ -10,7 +10,7 @@ public class UserPopulator implements Populator<UserModel, UserDto>{
         userDto.setDocument(userModel.getDocument());
         userDto.setFirstName(userModel.getFirstName());
         userDto.setLastName(userModel.getLastName());
-        //userDto.setDoB(userModel.getDoB());
+        userDto.setDoB(userModel.getDoB());
         userDto.setGender(userModel.getGender());
         userDto.setEmail(userModel.getEmail());
         userDto.setPhoneNumber(userModel.getPhoneNumber());
