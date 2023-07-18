@@ -10,13 +10,11 @@ public interface UserService {
 
     UserModel save(UserModel userModel);
 
-    boolean existsByDocument (String document);
+    UserModel getUserByUid(String uid);
 
     List<UserModel> findAll();
 
-    Optional<UserModel> findById(String id);
+    List<UserModel> findAllByStatus(UserStatus userStatus);
 
     void delete(UserModel userModel);
-
-    List<UserModel> findAllByStatus(UserStatus userStatus);
 }

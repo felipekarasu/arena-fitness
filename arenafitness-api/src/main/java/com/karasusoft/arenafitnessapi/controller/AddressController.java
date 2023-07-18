@@ -36,19 +36,19 @@ public class AddressController {
         return ResponseEntity.status(HttpStatus.CREATED).body(addressService.save(addressModel));
     }
 
-    @GetMapping("/user/{userId}")
+    /*@GetMapping("/user/{userId}")
     public ResponseEntity<List<AddressModel>> getAddressesByUserId(@PathVariable(value = "userId") String userId){
 
-        Optional<UserModel> userModel = userService.findById(userId);
+        UserModel userModel = userService.getUserByUid(userId);
 
-        if(!userModel.isPresent()){
+        if(userModel.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ArrayList<>());
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(addressService.getAllByUserId(userId));
-    }
+    }*/
 
-    @PutMapping("{addressId}/associateUser/{userId}")
+    /*@PutMapping("{addressId}/associateUser/{userId}")
     public ResponseEntity<Object> associateAddress(@PathVariable(value = "addressId") UUID addressId,
                                                    @PathVariable(value = "userId") String userId){
 
@@ -67,5 +67,5 @@ public class AddressController {
         userService.save(optionalUser.get());
 
         return ResponseEntity.status(HttpStatus.OK).body(optionalUser.get());
-    }
+    }*/
 }

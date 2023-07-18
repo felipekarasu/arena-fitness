@@ -29,7 +29,7 @@ public class AddressServiceImplementation implements AddressService {
 
     //TODO refactor remove address from name
     @Override
-    public List<AddressModel> getAllByUserId(String userId) {
-        return addressRepository.findAllAddressesByUserDocument(userId);
+    public List<AddressModel> getAllByUserUid(String userUid) {
+        return addressRepository.findAllAddressesByUserUid(userUid);
     }
 }

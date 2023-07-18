@@ -23,11 +23,6 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public boolean existsByDocument(String document) {
-        return userRepository.existsByDocument(document);
-    }
-
-    @Override
     public List<UserModel> findAll() {
         return userRepository.findAll();
     }
@@ -39,8 +34,8 @@ public class UserServiceImplementation implements UserService {
 
     //TODO refactor id -> document
     @Override
-    public Optional<UserModel> findById(String id) {
-        return userRepository.findById(id);
+    public UserModel getUserByUid(String uid) {
+        return userRepository.findByUid(uid);
     }
 
     @Override

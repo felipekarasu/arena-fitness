@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, String> {
 
-    boolean existsByDocument(String document);
+    UserModel findByUid(String uid);
 
     List<UserModel> findAllByUserStatus(UserStatus userStatus);
 }

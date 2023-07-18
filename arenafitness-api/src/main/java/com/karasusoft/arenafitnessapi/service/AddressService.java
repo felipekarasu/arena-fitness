@@ -12,6 +12,6 @@ public interface AddressService {
 
     Optional<AddressModel> findById(UUID addressId);
 
-    List<AddressModel> getAllByUserId(String userId);
+    List<AddressModel> getAllByUserUid(String userUid);
 
 }

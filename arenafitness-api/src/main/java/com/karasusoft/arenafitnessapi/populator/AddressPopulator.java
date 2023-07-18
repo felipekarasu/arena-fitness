@@ -7,6 +7,7 @@ public class AddressPopulator implements Populator<AddressModel, AddressDto> {
 
     @Override
     public void populate(AddressModel addressModel, AddressDto addressDto) {
+        //TODO validate null objects
         addressDto.setAddressName(addressModel.getAddressName());
         addressDto.setAddressNumber(addressModel.getAddressNumber());
         addressDto.setArea(addressDto.getArea());
@@ -14,10 +15,5 @@ public class AddressPopulator implements Populator<AddressModel, AddressDto> {
         addressDto.setState(addressDto.getState());
         addressDto.setCountry(addressDto.getCountry());
         addressDto.setPostalCode(addressDto.getPostalCode());
-    }
-
-    @Override
-    public void reversePopulate(AddressDto addressDto, AddressModel addressModel) {
-
     }
 }

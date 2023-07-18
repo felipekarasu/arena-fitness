@@ -10,5 +10,5 @@ import java.util.UUID;
 @Repository
 public interface AddressRepository extends JpaRepository<AddressModel, UUID> {
 
-    List<AddressModel> findAllAddressesByUserDocument(String userId);
+    List<AddressModel> findAllAddressesByUserUid(String userUid);
 }
