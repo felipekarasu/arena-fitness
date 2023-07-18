@@ -1,6 +1,5 @@
 package com.karasusoft.arenafitnessapi.dto;
 
-import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,17 +13,26 @@ import java.util.List;
 
 @Getter
 @Setter
-public class UserDto {
+public class CreateUserDto {
 
-    String document;
+    @CPF
+    @NotBlank
+    String uid;
+
+    @NotBlank
     String firstName;
+
+    @NotBlank
     String lastName;
+
     String gender;
+
     String phoneNumber;
+
+    @Email
     String email;
+
     LocalDateTime DoB;
-    LocalDateTime creationDate;
-    UserStatus userStatus;
 
     @Getter(AccessLevel.NONE)
     List<AddressDto> addressDtoList;

@@ -8,15 +8,30 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-public class AddressDto {
+public class CreateAddressDto {
 
+    @NotBlank
     private String addressName;
+
+    @NotBlank
     private String addressNumber;
+
+    @NotBlank
     private String area;
+
+    @NotBlank
     private String city;
+
+    @NotBlank
     private String state;
+
+    @NotBlank
     private String country;
+
+    @NotBlank
     private String postalCode;
+
     private String complement;
+
     private String reference;
 }

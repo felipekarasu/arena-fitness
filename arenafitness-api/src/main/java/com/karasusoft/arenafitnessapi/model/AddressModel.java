@@ -15,7 +15,7 @@ import java.util.UUID;
 public class AddressModel {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private UUID addressId;
 
     @ManyToOne

@@ -17,7 +17,8 @@ import java.util.List;
 public class UserModel {
 
     @Id
-    private String document;
+    @Column(unique = true, nullable = false)
+    private String uid;
 
     @Column(nullable = false)
     private String firstName;
@@ -25,14 +26,16 @@ public class UserModel {
     @Column(nullable = false)
     private String lastName;
 
-    private String gender;
-
+    @Column(nullable = false)
     private String phoneNumber;
 
     private String email;
 
+    private String gender;
+
     private LocalDateTime DoB;
 
+    @Column(nullable = false)
     private LocalDateTime creationDate;
 
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
