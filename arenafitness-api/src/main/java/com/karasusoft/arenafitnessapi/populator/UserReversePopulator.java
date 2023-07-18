@@ -15,13 +15,4 @@ public class UserPopulator implements Populator<UserModel, UserDto>{
         userDto.setEmail(userModel.getEmail());
         userDto.setPhoneNumber(userModel.getPhoneNumber());
     }
-
-    @Override
-    public void reversePopulate(UserDto userDto, UserModel userModel) {
-
-        if(userDto.getDocument().isEmpty()){
-            userModel.setDocument(userDto.getDocument());
-        }
-
-    }
 }
