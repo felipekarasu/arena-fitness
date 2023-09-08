@@ -20,30 +20,31 @@ public class AddressModel {
 
     @ManyToOne
     @JsonBackReference
-    @JoinColumn(name="user_document", nullable=false)
+    @JoinColumn(name="user_uid", nullable=false)
     private UserModel user;
 
-    @NotBlank
+    //TODO use table annotations
+    //@NotBlank
     private String addressName;
 
     private String addressNumber;
 
-    @NotBlank
+    //@NotBlank
     private String area;
 
     private String complement;
 
     private String reference;
 
-    @NotBlank
+    //@NotBlank
     private String city;
 
-    @NotBlank
+    //@NotBlank
     private String State;
 
-    @NotBlank
+    //@NotBlank
     private String country;
 
-    @NotBlank
+    //@NotBlank
     private String postalCode;
 }

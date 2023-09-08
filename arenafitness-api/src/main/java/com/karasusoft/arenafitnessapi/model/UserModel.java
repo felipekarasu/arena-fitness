@@ -17,7 +17,7 @@ import java.util.List;
 public class UserModel {
 
     @Id
-    @Column(unique = true, nullable = false)
+    @Column(unique=true, nullable=false)
     private String uid;
 
     @Column(nullable = false)
@@ -38,10 +38,10 @@ public class UserModel {
     @Column(nullable = false)
     private LocalDateTime creationDate;
 
-    @OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
+
+    @OneToMany(mappedBy="user", cascade=CascadeType.ALL)
     @Getter(AccessLevel.NONE)
     private List<AddressModel> addressModelList;
-
     @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
 
@@ -52,4 +52,12 @@ public class UserModel {
         }
         return addressModelList;
     }
+
+    /*@PrePersist
+    @PreUpdate
+    private void prePersist() {
+        if(addressModelList != null){
+            addressModelList.stream().forEach(a -> a.setUser(this));
+        }
+    }*/
 }

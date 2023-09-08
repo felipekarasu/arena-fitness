@@ -4,10 +4,7 @@ import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.br.CPF;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +13,7 @@ import java.util.List;
 @Setter
 public class UserDto {
 
-    String document;
+    String uid;
     String firstName;
     String lastName;
     String gender;
@@ -26,15 +23,16 @@ public class UserDto {
     LocalDateTime creationDate;
     UserStatus userStatus;
 
+    //TODO change name and fix mapper
     @Getter(AccessLevel.NONE)
-    List<AddressDto> addressDtoList;
+    List<AddressDto> addressModelList;
 
     public List<AddressDto> getAddressDtoList() {
 
-        if( addressDtoList == null) {
-            addressDtoList = new ArrayList<>();
+        if( addressModelList == null) {
+            addressModelList = new ArrayList<>();
         }
 
-        return addressDtoList;
+        return addressModelList;
     }
 }

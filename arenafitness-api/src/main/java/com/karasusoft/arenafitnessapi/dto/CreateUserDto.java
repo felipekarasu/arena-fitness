@@ -27,6 +27,7 @@ public class CreateUserDto {
 
     String gender;
 
+    @NotBlank
     String phoneNumber;
 
     @Email

@@ -4,21 +4,22 @@ import com.karasusoft.arenafitnessapi.dto.CreateUserDto;
 import com.karasusoft.arenafitnessapi.dto.UserDto;
 import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import com.karasusoft.arenafitnessapi.facade.UserFacade;
-import com.karasusoft.arenafitnessapi.model.UserModel;
 import com.karasusoft.arenafitnessapi.service.UserService;
+import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.BeanUtils;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
+@Log4j2
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
@@ -43,15 +44,16 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserModel>> getAllUsers() {
+    public List<UserDto> getAllUsers() {
 
-        return ResponseEntity.status(HttpStatus.OK).body(userService.findAll());
+        //Type listType = new TypeToken<List<UserDto>>(){}.getType();
+        return modelMapper.map(userFacade.getAllUsers(), new TypeToken<List<UserDto>>(){}.getType());
     }
 
     @GetMapping("/status")
-    public ResponseEntity<List<UserModel>> getUserByStatus(@RequestParam(value = "status") String userStatus) {
+    public List<UserDto> getUsersByStatus(@RequestParam(value = "status") String userStatus) {
 
-        return ResponseEntity.status(HttpStatus.OK).body(userService.findAllByStatus(UserStatus.valueOf(userStatus)));
+       return Arrays.asList(modelMapper.map(userFacade.getUsersByStatus(UserStatus.valueOf(userStatus)), UserDto[].class));
     }
 
     /*@PutMapping
