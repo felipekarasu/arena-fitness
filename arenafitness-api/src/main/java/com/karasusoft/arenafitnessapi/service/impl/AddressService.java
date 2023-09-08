@@ -1,4 +1,4 @@
-package com.karasusoft.arenafitnessapi.service;
+package com.karasusoft.arenafitnessapi.service.impl;
 
 import com.karasusoft.arenafitnessapi.model.AddressModel;
 import com.karasusoft.arenafitnessapi.repoisitory.AddressRepository;
@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class AddressServiceImplementation implements AddressService {
+public class AddressService implements com.karasusoft.arenafitnessapi.service.AddressService {
 
     @Autowired
     AddressRepository addressRepository;

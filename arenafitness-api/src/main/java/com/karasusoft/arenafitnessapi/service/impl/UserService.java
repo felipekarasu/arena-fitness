@@ -1,4 +1,4 @@
-package com.karasusoft.arenafitnessapi.service;
+package com.karasusoft.arenafitnessapi.service.impl;
 
 import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import com.karasusoft.arenafitnessapi.model.UserModel;
@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class UserServiceImplementation implements UserService {
+public class UserService implements com.karasusoft.arenafitnessapi.service.UserService {
 
     @Autowired
     UserRepository userRepository;
@@ -32,7 +31,6 @@ public class UserServiceImplementation implements UserService {
         return userRepository.findAllByUserStatus(userStatus);
     }
 
-    //TODO refactor id -> document
     @Override
     public UserModel getUserByUid(String uid) {
         return userRepository.findByUid(uid);

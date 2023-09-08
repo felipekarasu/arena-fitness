@@ -4,7 +4,6 @@ import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import com.karasusoft.arenafitnessapi.model.UserModel;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
 
