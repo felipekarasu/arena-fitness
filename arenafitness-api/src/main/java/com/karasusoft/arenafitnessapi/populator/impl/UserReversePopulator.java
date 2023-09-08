@@ -1,17 +1,22 @@
-package com.karasusoft.arenafitnessapi.populator;
+package com.karasusoft.arenafitnessapi.populator.impl;
 
 import com.karasusoft.arenafitnessapi.dto.CreateUserDto;
 import com.karasusoft.arenafitnessapi.enums.UserStatus;
 import com.karasusoft.arenafitnessapi.model.UserModel;
+import com.karasusoft.arenafitnessapi.populator.Populator;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-public class UserReversePopulator implements Populator<CreateUserDto, UserModel>{
+@Slf4j
+public class UserReversePopulator implements Populator<CreateUserDto, UserModel> {
 
     @Override
     public void populate(CreateUserDto source, UserModel target) {
+
+        log.info("Starting to populate the userModel. ");
 
         if( StringUtils.isNotEmpty(source.getUid())) {
             target.setUid(source.getUid());
@@ -41,9 +46,9 @@ public class UserReversePopulator implements Populator<CreateUserDto, UserModel>
             target.setPhoneNumber(source.getPhoneNumber());
         }
 
-        //TODO populator para o endereço
-
         target.setCreationDate(LocalDateTime.now(ZoneId.of("UTC")));
         target.setUserStatus(UserStatus.CREATED);
+
+        log.info("usermodel populating finished. ");
     }
 }

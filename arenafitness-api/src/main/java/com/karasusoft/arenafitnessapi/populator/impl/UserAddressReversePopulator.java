@@ -1,15 +1,20 @@
-package com.karasusoft.arenafitnessapi.populator;
+package com.karasusoft.arenafitnessapi.populator.impl;
 
 import com.karasusoft.arenafitnessapi.dto.AddressDto;
 import com.karasusoft.arenafitnessapi.dto.CreateUserDto;
 import com.karasusoft.arenafitnessapi.model.AddressModel;
 import com.karasusoft.arenafitnessapi.model.UserModel;
+import com.karasusoft.arenafitnessapi.populator.Populator;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
+@Slf4j
 public class UserAddressReversePopulator implements Populator<CreateUserDto, UserModel> {
 
     //@Override
     public void populate(CreateUserDto source, UserModel target) {
+
+        log.info("Starting to populate the addressModel. ");
 
         if( source.getAddressDtoList().isEmpty()) {
             return;
@@ -55,6 +60,8 @@ public class UserAddressReversePopulator implements Populator<CreateUserDto, Use
             }
 
             target.getAddressModelList().add(newAddressModel);
+
+            log.info("addressModel populating finished");
         }
     }
 }
